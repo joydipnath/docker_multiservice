@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD
+    volumes:
+      - mysql:/var/lib/mysql
+    ports:
+      - 33060:3306
+
+volumes:
+  mysql:
+
+
+
+# Create the container
+# docker run --name my-mysql -e MYSQL_ROOT_PASSWORD=secret -v /$MYSQL/mysql-data:/var/lib/mysql -d mysql:8.0
+# Connecting to MySQL
+# docker exec -it my-mysql mysql -p
+# Import a SQL file to the container
+# docker exec -it my-mysql mysql -psecret database_name < path-to-file.sql
+
+# https://www.howtogeek.com/devops/how-to-run-mysql-in-a-docker-container/
